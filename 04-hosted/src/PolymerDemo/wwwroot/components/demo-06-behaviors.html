@@ -1,0 +1,18 @@
+﻿<link rel="import" href="includes.html">
+<link rel="import" href="demo-06-behavior.html"/>
+
+<dom-module id="demo-06-behaviors">
+	<template>
+		<h1>Behaviors</h1>
+		<p>Do we have a name? {{name}}</p>
+		<p>Do we have a lastname? {{lastname}}</p>
+	</template>
+
+	<script>
+		Polymer({
+			is: 'demo-06-behaviors',
+			behaviors: [Demo.BaseBehavior]
+			//behaviors: [Demo.ExtendedBehavior]
+		});
+	</script>
+</dom-module>

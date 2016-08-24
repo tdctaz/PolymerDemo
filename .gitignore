@@ -1,0 +1,6 @@
+[Bb]in/
+[Oo]bj/
+.vs/
+bower_components/
+*.xproj.user
+*.lock.json

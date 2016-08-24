@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<script>window.Polymer = { dom: 'shadow', lazyRegister: true };</script>
+	<base href="http://polygit.org/components/">
+	<link rel="import" href="polymer/polymer.html">
+	<link rel="import" href="google-map/google-map.html">
+	<script src="webcomponentsjs/webcomponents-lite.min.js"></script>
+	<style>
+		h1 {
+			color: red;
+			font-size: 44px;
+		}
+		google-map {
+			height: 600px;
+		}
+	</style>
+</head>
+
+<body unresolved>
+	<h1>Polymer Elements</h1>
+	<ul>
+		<li><a href="https://elements.polymer-project.org/">Google/Polymer collection</a></li>
+		<li><a href="https://customelements.io/">CustomElements.io</a></li>
+		<li>Link directly</li>
+		<li>Bower import (shown in a minute)</li>
+	</ul>
+
+	<google-map latitude="55.6855" longitude="12.5644" zoom="18">
+		<google-map-marker latitude="55.68552176380951" longitude="12.56527812037655"></google-map-marker>
+	</google-map>
+</body>
+
+</html>

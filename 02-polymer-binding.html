@@ -1,0 +1,69 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<script>window.Polymer = { dom: 'shadow', lazyRegister: true };</script>
+	<base href="http://polygit.org/components/">
+	<link rel="import" href="polymer/polymer.html">
+	<script src="webcomponentsjs/webcomponents-lite.min.js"></script>
+	<style>
+		h1 {
+			color: red;
+			font-size: 44px;
+		}
+	</style>
+</head>
+
+<dom-module id="hello-world">
+	<template>
+		<style>
+			div {
+				border: 1px solid black;
+				margin: 5px;
+				padding: 5px;
+			}
+		</style>
+		<div>
+			<h1>Hello world {{name}}</h1>
+			<h2>{{_computeValue(name)}}</h2>
+			<input value="{{name::input}}">
+			<button on-click="foobarName">Foobar</button>
+		</div>
+	</template>
+	<script>
+		Polymer({
+			is: 'hello-world',
+			properties: {
+				name: {
+					type: String,
+					reflectToAttribute: true
+				}
+			},
+			foobarName: function() {
+				this.name = 'Foobar';
+			},
+			_computeValue: function(arg) {
+				return arg + " Baz Bazen";
+			}
+		});
+	</script>
+</dom-module>
+
+<body unresolved>
+	<h1>Polymer</h1>
+	<ul>
+		<li>Lightweight layer to web components</li>
+		<li>Not opinionated (works fine on its own or with angular, react, etc)</li>
+		<li>Data bindings (one-way, two-way, computed and observers)</li>
+		<li>Component definition (properties, mixins, events)</li>
+		<li>Tools (Minification, bundling, etc) -- WIP</li>
+		<li>Component library</li>
+	</ul>
+
+	<hello-world name="Boris"></hello-world>
+	<hello-world name="Elvis"></hello-world>
+	<hello-world name="Igor"></hello-world>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+﻿<script>
+	window.Demo = window.Demo || {};
+
+	Demo.BaseBehavior = {
+		properties: {
+			name: { type: String, value: 'Foobar' }
+		},
+		created: function() {
+			console.log('BaseBehavior created');
+		}
+	};
+
+	Demo.ExtendedBehaviorImpl = {
+		properties: {
+			name: { type: String, value: 'Foo' },
+			lastname: { type: String, value: 'Baz' }
+		}
+	};
+
+	Demo.ExtendedBehavior = [Demo.BaseBehavior, Demo.ExtendedBehaviorImpl];
+</script>

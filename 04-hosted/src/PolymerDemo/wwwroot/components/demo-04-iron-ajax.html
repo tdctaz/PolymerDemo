@@ -1,0 +1,69 @@
+﻿<link rel="import" href="includes.html">
+
+<dom-module id="display-gist">
+	<template>
+		<a href="{{gist.html_url}}">
+			<template is="dom-repeat" items="{{files}}">
+				<div>{{item.name}}</div>
+			</template>
+		</a>
+	</template>
+
+	<script>
+		Polymer({
+			is: 'display-gist',
+			properties : {
+				gist: { type: Object },
+				files: { type: Object, computed: '_computeFiles(gist)' }
+			},
+			_computeFiles: function (gist) {
+				if (!gist) {
+					return [];
+				}
+				return Object.keys(gist.files).map(function (key) {
+					return {
+						name: key,
+						value: gist[key]
+					};
+				});
+			}
+		});
+	</script>
+</dom-module>
+
+<dom-module id="demo-04-iron-ajax">
+	<template>
+		<h1>Iron Ajax</h1>
+		<input value="{{userName::change}}"></input>
+		<p>Random users with gist files:</p>
+		<ul>
+			<li>tdctaz</li>
+			<li>CYBAI</li>
+			<li>xarsh</li>
+			<li>sagarsumit03</li>
+		</ul>
+
+		<iron-ajax auto
+			url="{{_computeUrl(userName)}}"
+			last-response="{{response}}">
+		</iron-ajax>
+		<hr/>
+		<ul>
+			<template is="dom-repeat" items="{{response}}">
+				<li><display-gist gist="{{item}}"></display-gist></li>
+			</template>
+		</ul>
+	</template>
+
+	<script>
+		Polymer({
+			is: 'demo-04-iron-ajax',
+			properties : {
+				userName: { type: String, value: 'tdctaz', reflectToAttribute: true }
+			},
+			_computeUrl: function (userName) {
+				return "https://api.github.com/users/"+ userName + "/gists";
+			}
+		});
+	</script>
+</dom-module>

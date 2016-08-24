@@ -1,0 +1,73 @@
+﻿<link rel="import" href="includes.html">
+
+<dom-module id="element-events">
+	<template>
+		<p>Element {{name}}</p>
+	</template>
+
+	<script>
+		Polymer({
+			is: 'element-events',
+			properties: {
+				item: { type: Object, observer: '_updateItem' },
+				name: { type: String, reflectToAttribute: true }
+			},
+			created: function () {
+				console.log("Created");
+			},
+			ready: function () {
+				console.log("Ready");
+			},
+			attached: function () {
+				console.log("Attached");
+			},
+			detached: function () {
+				console.log("Detached");
+			},
+			attributeChanged: function () {
+				console.log("Attribute Changed");
+			},
+			_updateItem: function () {
+				this.name = this.item.name;
+				// Same as: this.set('name', this.get('item.name'));
+			}
+		});
+	</script>
+</dom-module>
+
+<dom-module id="demo-05-lifecycle">
+	<template>
+		<h1>Lifecycle</h1>
+		<button on-click="_add">Add Item</button>
+		<button on-click="_remove">Remove Item</button>
+		<button on-click="_change">Change</button>
+		<hr/>
+		<template is="dom-repeat" items="{{items}}">
+			<element-events item="{{item}}"></element-events>
+		</template>
+	</template>
+
+	<script>
+		Polymer({
+			is: 'demo-05-lifecycle',
+			properties: {
+				items: { type: Array, value: [] }
+			},
+			_add: function () {
+				var item = {
+					name: 'Foobar'
+				};
+				this.push("items", item);
+			},
+			_remove: function() {
+				if (this.items.length > 0) {
+					this.splice("items", 0, 1);
+				}
+			},
+			_change: function () {
+				// $$ is a first element selector
+				this.$$('element-events').setAttribute("name", "Baz");
+			}
+		});
+	</script>
+</dom-module>
