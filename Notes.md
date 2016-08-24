@@ -1,9 +1,9 @@
 Presentation Notes
 
 1. 
-	- Template and Shadow Dom are the important items
-	- Shadow Dom only on chrome atm
-	- Non-Shadow dom styles bleed in but not out
+ - Template and Shadow Dom are the important items
+ - Shadow Dom only on chrome atm
+ - Non-Shadow dom styles bleed in but not out
 
 2.
 	- Properties; type, value, computed, observer, reflectToAttribute
