@@ -3,6 +3,7 @@
 	"private": true,
 	"dependencies": {
 		"polymer": "1.6.1",
-		"iron-ajax": "PolymerElements/iron-ajax#^1.4.3"
+		"iron-ajax": "PolymerElements/iron-ajax#^1.4.3",
+		"web-component-tester": "4.3.4"
 	}
 }

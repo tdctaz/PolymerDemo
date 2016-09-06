@@ -1,0 +1,29 @@
+﻿<link rel="import" href="../includes.html">
+
+<dom-module id="demo-07-testing">
+	<template>
+		<h1>Testing</h1>
+		<a href="test/index.html">Link to test results</a>
+
+		<h2>From the command line</h2>
+		<pre>polymer test --root ./wwwroot/ components/**/test/</pre>
+
+		<h2>Serving from .Net Core Kestrel server</h2>
+		<p>???</p>
+
+		<h2>Integration with VS</h2>
+		<p>Adding testing to gulp ???</p>
+
+		<h1>FooBar? {{foo}} {{bar}}</h1>
+	</template>
+
+	<script>
+		Polymer({
+			is: 'demo-07-testing',
+			properties: {
+				foo: { type: String, value: 'bar' },
+				bar: { type: Boolean, value: true }
+			}
+		});
+	</script>
+</dom-module>

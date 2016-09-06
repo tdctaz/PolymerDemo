@@ -1,0 +1,41 @@
+﻿<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<script src="../../../bower_components/webcomponentsjs/webcomponents.min.js"></script>
+	<script src="../../../bower_components/web-component-tester/browser.js"></script>
+	<script src="../../../bower_components/test-fixture/test-fixture-mocha.js"></script>
+	<link rel="import" href="../demo-07-testing.html">
+</head>
+<body>
+<test-fixture id="sutFixture">
+	<template>
+		<demo-07-testing id="fixture"></demo-07-testing>
+	</template>
+</test-fixture>
+
+<script>
+	suite('<demo-07-testing>', function () {
+		var subjectUnderTest;
+		setup(function() {
+			subjectUnderTest = fixture('sutFixture');
+		});
+
+		test('fixture failure', function() {
+			subjectUnderTest.foo = 'baz';
+			subjectUnderTest.bar = false;
+			assert.isFalse(subjectUnderTest.bar);
+			assert.equal(subjectUnderTest.foo, 'baz');
+		});
+
+		test('dependent test', function() {
+			assert.isTrue(subjectUnderTest.bar);
+			assert.equal(subjectUnderTest.foo, 'bar');
+		});
+
+		a11ySuite('sutFixture');
+	});
+</script>
+</body>
+</html>
